@@ -1,8 +1,12 @@
 {
   "name": "offlinebudgettracker",
   "version": "1.0.0",
-  "description": "",
+  "description": "Track your budget",
   "main": "server.js",
+  "engines": {
+    "node": "12.11.1",
+    "npm": "6.14.8"
+  }
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
