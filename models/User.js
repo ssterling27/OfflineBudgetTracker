@@ -5,7 +5,7 @@ const User = new Schema({
     type: String,
     unique: true
   },
-  transactions [{
+  transactions: [{
     type: Schema.Types.ObjectId,
     ref: 'Transaction'
   }]

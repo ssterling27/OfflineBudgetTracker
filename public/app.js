@@ -21,7 +21,7 @@ axios.get('/api/user', {
     <div class="card">
       <div class="card-body" id=${transaction._id}>
         <h5 class="card-title" style="margin-bottom: 20px;">${transaction.name}</h5>
-        <h6>${transaction.value}</h6>
+        <h6>$${transaction.value}</h6>
     `
       document.getElementById('transactions').append(transactionElem)
       total = total + transaction.value
@@ -31,8 +31,8 @@ axios.get('/api/user', {
     totalElem.style = 'margin-top: 25px;'
     totalElem.innerHTML = `
     <div class="card">
-      <div class="card-body" id=${transaction._id}>
-        <h5 class="card-title" style="margin-bottom: 20px;" id="totalText">Total: ${total}</h5>
+      <div class="card-body">
+        <h5 class="card-title" style="margin-bottom: 20px;" id="totalText">Total: $${total}</h5>
     `
     document.getElementById('total').append(totalElem)
   })
@@ -50,7 +50,7 @@ document.getElementById('deposit').addEventListener('click', event => {
       'Authorization': `Bearer ${localStorage.getItem('token')}`
     }
   })
-    .then( { data } => {
+    .then(({ data }) => {
       let transactionElem = document.createElement('div')
       transactionElem.classList = 'col-sm-3'
       transactionElem.style = 'margin-top: 25px;'
@@ -58,11 +58,13 @@ document.getElementById('deposit').addEventListener('click', event => {
     <div class="card">
       <div class="card-body">
         <h5 class="card-title" style="margin-bottom: 20px;">${transaction.name}</h5>
-        <h6>${transaction.value}</h6>
+        <h6>$${transaction.value}</h6>
       `
       document.getElementById('transactions').append(transactionElem)
       total = total + transaction.value
-      document.getElementById('totalText').innerText = `Total: ${total}`
+      document.getElementById('totalText').innerText = `Total: $${total}`
+      document.getElementById('name').value = ''
+      document.getElementById('amount').value = ''
     })
     .catch(err => {
       console.error(err)
@@ -73,12 +75,14 @@ document.getElementById('deposit').addEventListener('click', event => {
       transactionElem.innerHTML = `
       <div class="card">
       <div class="card-body">
-        <h5 class="card-title" style="margin-bottom: 20px;">${transaction.name}</h5>
+        <h5 class="card-title" style="margin-bottom: 20px;">$${transaction.name}</h5>
         <h6>${transaction.value}</h6>
       `
       document.getElementById('transactions').append(transactionElem)
       total = total + transaction.value
-      document.getElementById('totalText').innerText = `Total: ${total}`
+      document.getElementById('totalText').innerText = `Total: $${total}`
+      document.getElementById('name').value = ''
+      document.getElementById('amount').value = ''
     })
 })
 
@@ -94,7 +98,7 @@ document.getElementById('withdraw').addEventListener('click', event => {
       'Authorization': `Bearer ${localStorage.getItem('token')}`
     }
   })
-    .then({ data } => {
+    .then(({ data }) => {
       let transactionElem = document.createElement('div')
       transactionElem.classList = 'col-sm-3'
       transactionElem.style = 'margin-top: 25px;'
@@ -102,11 +106,13 @@ document.getElementById('withdraw').addEventListener('click', event => {
     <div class="card">
       <div class="card-body">
         <h5 class="card-title" style="margin-bottom: 20px;">${transaction.name}</h5>
-        <h6>${transaction.value}</h6>
+        <h6>$${transaction.value}</h6>
       `
       document.getElementById('transactions').append(transactionElem)
       total = total + transaction.value
-      document.getElementById('totalText').innerText = `Total: ${total}`
+      document.getElementById('totalText').innerText = `Total: $${total}`
+      document.getElementById('name').value = ''
+      document.getElementById('amount').value = ''
     })
     .catch(err => {
       console.error(err)
@@ -118,10 +124,12 @@ document.getElementById('withdraw').addEventListener('click', event => {
       <div class="card">
       <div class="card-body">
         <h5 class="card-title" style="margin-bottom: 20px;">${transaction.name}</h5>
-        <h6>${transaction.value}</h6>
+        <h6>$${transaction.value}</h6>
       `
       document.getElementById('transactions').append(transactionElem)
       total = total + transaction.value
-      document.getElementById('totalText').innerText = `Total: ${total}`
+      document.getElementById('totalText').innerText = `Total: $${total}`
+      document.getElementById('name').value = ''
+      document.getElementById('amount').value = ''
     })
 })

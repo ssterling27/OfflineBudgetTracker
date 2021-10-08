@@ -1,5 +1,5 @@
 let db
-const request = indexDB.open('budgettracker', 1)
+const request = indexedDB.open('budgettracker', 1)
 
 request.onupgradeneeded = ({ target }) => {
   db = target.result
@@ -16,13 +16,13 @@ request.onsuccess = ({ target }) => {
 
 const saveRecord = record => {
   const dbTransaction = db.transaction(['pending'], 'readwrite')
-  const store = transaction.objectStore('pending')
+  const store = dbTransaction.objectStore('pending')
   store.add(record)
 }
 
 const checkDatabase = () => {
   const dbTransaction = db.transaction(['pending'], 'readwrite')
-  const store = transaction.objectStore('pending')
+  const store = dbTransaction.objectStore('pending')
   const getAll = store.getAll()
 
   getAll.onsuccess = () => {
@@ -34,7 +34,7 @@ const checkDatabase = () => {
       })
         .then(() => {
           const dbTransaction = db.transaction(['pending'], 'readwrite')
-          const store = transaction.objectStore('pending')
+          const store = dbTransaction.objectStore('pending')
           store.clear()
         })
     }

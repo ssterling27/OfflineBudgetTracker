@@ -2,7 +2,7 @@ const urls = [
   '/',
   '/auth.html',
   '/index.html',
-  '/manifes.json'
+  '/manifest.json'
 ]
 
 self.addEventListener('install', event => {
