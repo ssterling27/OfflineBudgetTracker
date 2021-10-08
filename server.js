@@ -33,6 +33,10 @@ passport.use(new JWTStrategy({
 
 app.use(require('./routes'))
 
+app.get('*', (req, res) => {
+  res.sendFile(join(__dirname, 'public'))
+})
+
 const PORT = process.env.PORT || 3000
 
 syncDB()
