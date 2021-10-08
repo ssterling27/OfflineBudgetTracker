@@ -36,5 +36,5 @@ app.use(require('./routes'))
 const PORT = process.env.PORT || 3000
 
 syncDB()
-  .then(() => app.set("port", PORT))
+  .then(() => app.listen(PORT))
   .catch(err => console.log(err))
