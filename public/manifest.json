@@ -4,5 +4,12 @@
   "theme_color": "#ffffff",
   "background_color": "#ffffff",
   "start_url": "/",
-  "display": "standalone"
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "icons/todo_icon.png",
+      "sizes": "150x150",
+      "type": "image/png"
+    }
+  ]
 }
